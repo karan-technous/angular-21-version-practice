@@ -1,6 +1,6 @@
 :root {
-  --bg: #f6f8fb;
-  --card: #ffffff;
+  --bg: #000000;
+  --card: #000000;
   --accent: #4f46e5;
   --border: #e6e9ef;
 }
@@ -8,9 +8,9 @@
 .form-card {
   max-width: 720px;
   margin: 20px auto;
-  background: var(--card);
+  background: black;
   border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(34, 41, 47, 0.06);
+  box-shadow: 1px 3px 10px 5px rgba(128, 128, 128, 0.135);
   padding: 20px 22px;
   font-family:
     Inter,
@@ -34,7 +34,6 @@
 .form-label {
   font-weight: 600;
   margin-bottom: 6px;
-  color: #111827;
 }
 
 .form-input {
@@ -43,6 +42,8 @@
   border-radius: 8px;
   font-size: 0.98rem;
   outline: none;
+  background-color: black;
+  color: white;
   transition:
     box-shadow 0.15s,
     border-color 0.15s;

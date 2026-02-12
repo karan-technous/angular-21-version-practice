@@ -1,0 +1,13 @@
+.hero_section a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero_section {
+  padding: 20px 40px;
+}
+
+.hero_section ul {
+    margin-top: 10px;
+    list-style: none;
+}

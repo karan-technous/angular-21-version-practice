@@ -124,8 +124,15 @@ p {
 
 .autocomplete {
   display: flex;
+  margin-top: 10px;
   position: relative;
   align-items: center;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+
+.autocomplete input {
+  width: 100%;
 }
 .material-symbols-outlined {
   font-size: 1.25rem;
@@ -158,8 +165,8 @@ p {
   padding: 0.5rem;
   max-height: 11rem;
   border-radius: 0.5rem;
-  box-shadow: 1px 3px 10px 5px grey;
-  background-color: white;
+  box-shadow: 1px 3px 10px 5px rgba(128, 128, 128, 0.352);
+  background-color: black;
   font-size: 0.9rem;
 }
 .no-results {
@@ -238,8 +245,8 @@ p {
   padding: 0.5rem;
   max-height: 11rem;
   border-radius: 0.5rem;
-  background-color: white;
-  box-shadow: 1px 3px 10px 5px grey;
+  background-color: black;
+  box-shadow: 1px 3px 10px 5px rgba(128, 128, 128, 0.352);
   font-size: 0.9rem;
 }
 .no-results {
