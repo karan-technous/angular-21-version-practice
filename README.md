@@ -1,59 +1,58 @@
-# MyAngular21App
+# Angular 21 Version Practice
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+## Project Description
+This project is a practice repository for experimenting with Angular 21 features and functionalities. It aims to provide developers with a hands-on experience for understanding and applying the latest updates in Angular.
 
-## Development server
+## Setup Instructions
+1. **Clone the Repository:**  
+   ```bash
+   git clone https://github.com/karan-technous/angular-21-version-practice.git
+   cd angular-21-version-practice
+   ```
+2. **Install Dependencies:**  
+   ```bash
+   npm install
+   ```
+3. **Run the Application:**  
+   ```bash
+   ng serve
+   ```  
+4. Open your browser and navigate to `http://localhost:4200` to see the application in action.
 
-To start a local development server, run:
-
-```bash
-ng serve
+## Project Structure
+```
+angular-21-version-practice/
+│   README.md             # Project Documentation
+│   package.json          # NPM dependencies and scripts
+│   angular.json          # Angular configuration settings
+│
+└───src/                 # Source files
+    ├───app/             # Angular components, services, and other modules
+    ├───assets/          # Static assets such as images or styles
+    ├───environments/     # Environment-specific settings
+    └───styles/          # Global styles
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Available Features
+- Angular 21 features implementation
+- Responsive design
+- Modular architecture for better maintainability and scalability
+- Easy navigation through routing
 
-## Code scaffolding
+## Development Guidelines
+- Follow Angular's Style Guide for coding standards.
+- Write clean, maintainable, and modular code.
+- Use meaningful commit messages for version control.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Testing Information
+- The project includes unit tests for core components.
+- To run the tests, use the following command:
+  ```bash
+  ng test
+  ```
+- For end-to-end testing, use:
+  ```bash
+  ng e2e
+  ```
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+For any questions or contributions, feel free to open an issue or submit a pull request.
