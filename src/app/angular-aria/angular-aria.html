@@ -1,0 +1,105 @@
+<div>
+  <h1>Accordian</h1>
+
+  <div ngAccordionGroup class="basic-accordion" [multiExpandable]="false">
+    <h3>
+      <span ngAccordionTrigger panelId="q1" #trigger1="ngAccordionTrigger" [expanded]="true">
+        Which attribute tells assistive tech whether the panel is open or closed?
+        <span
+          aria-hidden="true"
+          class="expand-icon"
+          [class.expand-icon__expanded]="trigger1.expanded()"
+        ></span>
+      </span>
+    </h3>
+    <div ngAccordionPanel panelId="q1">
+      <ng-template ngAccordionContent>
+        <p>
+          Use <code>aria-expanded</code> on the button element. Set it to "true" when the content
+          panel is visible and "false" when the content is hidden. This is a crucial state indicator
+          for screen reader users.
+        </p>
+      </ng-template>
+    </div>
+    <h3>
+      <span ngAccordionTrigger panelId="q2" #trigger2="ngAccordionTrigger">
+        How do you link the button to the content it controls?
+        <span
+          aria-hidden="true"
+          class="expand-icon"
+          [class.expand-icon__expanded]="trigger2.expanded()"
+        ></span>
+      </span>
+    </h3>
+    <div ngAccordionPanel panelId="q2">
+      <ng-template ngAccordionContent>
+        <p>
+          Use the <code>aria-controls</code> attribute on the button, and set its value to match the
+          id of the related content panel. This establishes a programmatic relationship, allowing
+          assistive technologies to jump directly to the relevant content.
+        </p>
+      </ng-template>
+    </div>
+    <h3>
+      <span ngAccordionTrigger panelId="q3" #trigger3="ngAccordionTrigger">
+        What role should the heading element containing the accordion button have?
+        <span
+          aria-hidden="true"
+          class="expand-icon"
+          [class.expand-icon__expanded]="trigger3.expanded()"
+        ></span>
+      </span>
+    </h3>
+    <div ngAccordionPanel panelId="q3">
+      <ng-template ngAccordionContent>
+        <p>
+          The element containing the button should typically have <code>role="heading"</code> with
+          an appropriate <code>aria-level</code> to define the structure. This ensures the accordion
+          section is recognized as a section header, making the page structure navigable for users.
+        </p>
+      </ng-template>
+    </div>
+  </div>
+
+  <h1>AutoComplete</h1>
+  <div ngCombobox filterMode="auto-select">
+    <div #origin class="autocomplete">
+      <span class="search-icon material-symbols-outlined" translate="no" aria-hidden="true"
+        >search</span
+      >
+      <input
+        aria-label="Label dropdown"
+        placeholder="Select a country"
+        [(ngModel)]="query"
+        ngComboboxInput
+      />
+    </div>
+    <ng-template ngComboboxPopupContainer>
+      <ng-template
+        [cdkConnectedOverlay]="{ origin, usePopover: 'inline', matchWidth: true }"
+        [cdkConnectedOverlayOpen]="true"
+      >
+        <div class="popup">
+          @if (countries().length === 0) {
+            <div class="no-results">No results found</div>
+          }
+          <div ngListbox>
+            @for (country of countries(); track country) {
+              <div ngOption [value]="country" [label]="country">
+                <span class="option-label">{{ country }}</span>
+                <span class="check-icon material-symbols-outlined" translate="no" aria-hidden="true"
+                  >check</span
+                >
+              </div>
+            }
+          </div>
+        </div>
+      </ng-template>
+    </ng-template>
+  </div>
+
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</div>

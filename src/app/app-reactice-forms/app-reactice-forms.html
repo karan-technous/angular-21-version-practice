@@ -1,0 +1,29 @@
+<section class="form-card">
+  <header class="form-card__header">
+    <h2>Reactive Form</h2>
+  </header>
+
+  <form class="form" [formGroup]="userForm" novalidate>
+    <div class="form-row">
+      <label class="form-label" for="name">Name</label>
+      <input id="name" class="form-input" type="text" formControlName="name" />
+    </div>
+
+    <div class="form-row">
+      <label class="form-label" for="age">Age</label>
+      <input id="age" class="form-input" type="number" formControlName="age" />
+    </div>
+
+    <div class="form-row">
+      <label class="form-label" for="email">Email</label>
+      <input id="email" class="form-input" type="email" formControlName="email" />
+    </div>
+  </form>
+
+  <hr class="divider" />
+
+  <section class="form-preview">
+    <h3>Form Value</h3>
+    <pre class="json-preview">{{ userForm.value | json }}</pre>
+  </section>
+</section>
