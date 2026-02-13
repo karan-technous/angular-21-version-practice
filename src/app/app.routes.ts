@@ -30,8 +30,11 @@ export const routes: Routes = [
           },
           {
             path: 'dropdown',
-            loadComponent: () =>
-              import('./components/angular-aria/angular-aria').then((m) => m.AngularAriaComponent),
+            loadComponent: () => import('./components/dropdown/dropdown').then((m) => m.Dropdown),
+          },
+          {
+            path: 'accordion',
+            loadComponent: () => import('./components/accordion/accordion').then((m) => m.Accordion),
           },
           {
             path: 'signal-forms',

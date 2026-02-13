@@ -1,0 +1,44 @@
+<article class="panel glass-card">
+  <h2>Combobox Live Preview</h2>
+  <br />
+  <div ngCombobox filterMode="auto-select">
+    <div #origin class="autocomplete">
+      <span class="search-icon material-symbols-outlined" aria-hidden="true">search</span>
+
+      <input
+        aria-label="Country dropdown"
+        placeholder="Select a country"
+        [(ngModel)]="query"
+        ngComboboxInput
+      />
+    </div>
+
+    <ng-template ngComboboxPopupContainer>
+      <ng-template
+        [cdkConnectedOverlay]="{ origin, usePopover: 'inline', matchWidth: true }"
+        [cdkConnectedOverlayOpen]="true"
+      >
+        <div class="popup">
+          @if (countries().length === 0) {
+            <div class="no-results">No results found</div>
+          }
+
+          <div ngListbox>
+            @for (country of countries(); track country) {
+              <div ngOption [value]="country" [label]="country">
+                <span class="option-label">{{ country }}</span>
+                <span class="check-icon material-symbols-outlined" aria-hidden="true"> check </span>
+              </div>
+            }
+          </div>
+        </div>
+      </ng-template>
+    </ng-template>
+  </div>
+
+  <section class="live-feedback" aria-live="polite">
+    <p><strong>Query:</strong> {{ query() || 'none' }}</p>
+    <p><strong>Matches:</strong> {{ countries().length }}</p>
+    <p><strong>Top suggestion:</strong> {{ topSuggestion() }}</p>
+  </section>
+</article>

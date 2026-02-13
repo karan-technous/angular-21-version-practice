@@ -12,7 +12,7 @@ export class Home {
 
   protected readonly features = [
     {
-      title: 'Angular Aria',
+      title: 'Dropdown',
       description: 'Keyboard-safe components, combobox behavior, and live accessibility feedback.',
       route: '/explore-all/dropdown',
     },

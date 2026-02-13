@@ -26,6 +26,7 @@ html,
 body {
   margin: 0;
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -33,8 +34,7 @@ body {
   font-family: Inter, 'Segoe UI', sans-serif;
   background:
     radial-gradient(circle at 10% -10%, rgba(14, 165, 233, 0.25), transparent 25%),
-    radial-gradient(circle at 80% -20%, rgba(168, 85, 247, 0.2), transparent 24%),
-    var(--bg);
+    radial-gradient(circle at 80% -20%, rgba(168, 85, 247, 0.2), transparent 24%), var(--bg);
 }
 
 h1,
@@ -99,4 +99,19 @@ pre {
 ::-webkit-scrollbar-thumb {
   border-radius: 999px;
   background: #2f2f35;
+}
+
+/* Hide scrollbar for Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+* {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE/Old Edge */
+* {
+  -ms-overflow-style: none;
 }

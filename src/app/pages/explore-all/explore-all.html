@@ -5,13 +5,19 @@
       <h1>Back, <span class="name-plate">Karan</span></h1>
       <span class="span-last-login">Last Login: 2 jan 2025</span>
     </div>
-
-    <span class="dashboard-overview">UI Overview</span>
-    <app-button-tab-component icon="expand_circle_down" label="Dropdown" route="dropdown" />
-    <app-button-tab-component icon="content_paste" label="Signal Forms" route="signal-forms" />
-    <app-button-tab-component icon="assignment" label="Reactive Forms" route="reactive-forms" />
+    <div class="">
+      <span class="dashboard-overview">UI Overview</span>
+      <div class="scrolable-btn">
+        <app-button-tab-component icon="expand_circle_down" label="Dropdown" route="dropdown" />
+        <app-button-tab-component icon="content_paste" label="Signal Forms" route="signal-forms" />
+        <app-button-tab-component icon="assignment" label="Reactive Forms" route="reactive-forms" />
+        <app-button-tab-component icon="assignment" label="Accordion" route="accordion" />
+      </div>
+    </div>
   </div>
   <div class="right-side">
-    <router-outlet></router-outlet>
+    <div class="route-scroll route-animate">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

@@ -76,6 +76,10 @@
   border-color: #6876ff;
   box-shadow: 0 0 0 4px rgba(104, 118, 255, 0.15);
 }
+:host {
+  display: block;
+  animation: slide-up 360ms ease;
+}
 
 .field input[type='range'] {
   accent-color: #5b8cff;

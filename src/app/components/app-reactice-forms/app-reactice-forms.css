@@ -49,6 +49,10 @@
   padding: 16px 14px 10px;
   transition: all 220ms ease;
 }
+:host {
+  display: block;
+  animation: slide-up 360ms ease;
+}
 
 .input-wrap label {
   position: absolute;

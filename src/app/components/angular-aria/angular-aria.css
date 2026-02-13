@@ -151,6 +151,10 @@ p {
   border-color: #6366f1;
   box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.16);
 }
+:host {
+  display: block;
+  animation: slide-up 360ms ease;
+}
 
 [ngCombobox]:has([aria-expanded='false']) .popup {
   display: none;

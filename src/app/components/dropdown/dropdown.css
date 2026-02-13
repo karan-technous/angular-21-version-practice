@@ -1,0 +1,94 @@
+/* Component Animation */
+:host {
+  display: block;
+  animation: slide-up 360ms ease;
+}
+.glass-card {
+  padding: 10px;
+}
+/* Autocomplete Wrapper */
+.autocomplete {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+/* Search Icon */
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: var(--text-3);
+}
+
+/* Input */
+[ngComboboxInput] {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-1);
+  color: var(--text-1);
+  padding: 10px 10px 10px 36px;
+}
+
+[ngComboboxInput]:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.16);
+}
+
+/* Popup Container */
+[ngCombobox]:has([aria-expanded='false']) .popup {
+  display: none;
+}
+
+.popup {
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 6px;
+  background: #121217;
+  max-height: 220px;
+  overflow: auto;
+}
+
+/* Listbox */
+[ngListbox] {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Options */
+[ngOption] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+[ngOption]:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+[ngOption][aria-selected='true'] {
+  background: color-mix(in srgb, #0ea5e9 14%, transparent);
+}
+
+/* Selected Icon */
+[ngOption]:not([aria-selected='true']) .check-icon {
+  display: none;
+}
+
+/* Feedback Panel */
+.live-feedback {
+  margin-top: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--panel-tint) 56%, transparent);
+}
+
+.live-feedback p {
+  padding: 8px 10px;
+}

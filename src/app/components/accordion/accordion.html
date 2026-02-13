@@ -1,0 +1,40 @@
+<article class="panel glass-card">
+  <h2>Accordion Pattern</h2>
+  <br />
+
+  <div ngAccordionGroup class="basic-accordion" [multiExpandable]="false">
+    <h3>
+      <span ngAccordionTrigger panelId="q1" #trigger1="ngAccordionTrigger" [expanded]="true">
+        Which attribute tells assistive tech whether the panel is open or closed?
+        <span
+          aria-hidden="true"
+          class="expand-icon"
+          [class.expand-icon__expanded]="trigger1.expanded()"
+        ></span>
+      </span>
+    </h3>
+
+    <div ngAccordionPanel panelId="q1">
+      <ng-template ngAccordionContent>
+        <p>Use <code>aria-expanded</code> on the trigger to expose state changes.</p>
+      </ng-template>
+    </div>
+
+    <h3>
+      <span ngAccordionTrigger panelId="q2" #trigger2="ngAccordionTrigger">
+        How do you link the button to the content it controls?
+        <span
+          aria-hidden="true"
+          class="expand-icon"
+          [class.expand-icon__expanded]="trigger2.expanded()"
+        ></span>
+      </span>
+    </h3>
+
+    <div ngAccordionPanel panelId="q2">
+      <ng-template ngAccordionContent>
+        <p>Use <code>aria-controls</code> pointing to a matching panel id.</p>
+      </ng-template>
+    </div>
+  </div>
+</article>
