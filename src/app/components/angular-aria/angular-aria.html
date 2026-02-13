@@ -1,0 +1,103 @@
+<section class="aria-shell" [class.aria-shell--violet]="darkTone() === 'violet'">
+  <header class="aria-head glass-card">
+    <div>
+      <p class="eyebrow">Accessibility Showcase</p>
+      <h1>Angular Aria Components</h1>
+      <p>Combining semantic structure with modern interaction design.</p>
+    </div>
+    <button type="button" class="tone-toggle" (click)="toggleTone()">
+      {{ darkTone() === 'midnight' ? 'Use Violet Tone' : 'Use Midnight Tone' }}
+    </button>
+  </header>
+
+  <section class="aria-grid">
+    <article class="panel glass-card">
+      <h2>Accordion Pattern</h2>
+      <div ngAccordionGroup class="basic-accordion" [multiExpandable]="false">
+        <h3>
+          <span ngAccordionTrigger panelId="q1" #trigger1="ngAccordionTrigger" [expanded]="true">
+            Which attribute tells assistive tech whether the panel is open or closed?
+            <span
+              aria-hidden="true"
+              class="expand-icon"
+              [class.expand-icon__expanded]="trigger1.expanded()"
+            ></span>
+          </span>
+        </h3>
+        <div ngAccordionPanel panelId="q1">
+          <ng-template ngAccordionContent>
+            <p>Use <code>aria-expanded</code> on the trigger to expose state changes.</p>
+          </ng-template>
+        </div>
+        <h3>
+          <span ngAccordionTrigger panelId="q2" #trigger2="ngAccordionTrigger">
+            How do you link the button to the content it controls?
+            <span
+              aria-hidden="true"
+              class="expand-icon"
+              [class.expand-icon__expanded]="trigger2.expanded()"
+            ></span>
+          </span>
+        </h3>
+        <div ngAccordionPanel panelId="q2">
+          <ng-template ngAccordionContent>
+            <p>Use <code>aria-controls</code> pointing to a matching panel id.</p>
+          </ng-template>
+        </div>
+      </div>
+    </article>
+
+    <article class="panel glass-card">
+      <h2>Combobox Live Preview</h2>
+      <div ngCombobox filterMode="auto-select">
+        <div #origin class="autocomplete">
+          <span class="search-icon material-symbols-outlined" translate="no" aria-hidden="true">
+            search
+          </span>
+          <input
+            aria-label="Country dropdown"
+            placeholder="Select a country"
+            [(ngModel)]="query"
+            ngComboboxInput
+          />
+        </div>
+        <ng-template ngComboboxPopupContainer>
+          <ng-template
+            [cdkConnectedOverlay]="{ origin, usePopover: 'inline', matchWidth: true }"
+            [cdkConnectedOverlayOpen]="true"
+          >
+            <div class="popup">
+              @if (countries().length === 0) {
+                <div class="no-results">No results found</div>
+              }
+              <div ngListbox>
+                @for (country of countries(); track country) {
+                  <div ngOption [value]="country" [label]="country">
+                    <span class="option-label">{{ country }}</span>
+                    <span class="check-icon material-symbols-outlined" translate="no" aria-hidden="true">
+                      check
+                    </span>
+                  </div>
+                }
+              </div>
+            </div>
+          </ng-template>
+        </ng-template>
+      </div>
+      <section class="live-feedback" aria-live="polite">
+        <p><strong>Query:</strong> {{ query() || 'none' }}</p>
+        <p><strong>Matches:</strong> {{ countries().length }}</p>
+        <p><strong>Top suggestion:</strong> {{ topSuggestion() }}</p>
+      </section>
+    </article>
+  </section>
+
+  <section class="code-panel glass-card">
+    <h2>Snippet</h2>
+    <pre><code><span class="kw">const</span> countries = <span class="fn">computed</span>(() =&gt;
+  ALL_COUNTRIES.<span class="fn">filter</span>((country) =&gt;
+    country.<span class="fn">toLowerCase</span>().<span class="fn">startsWith</span>(query().<span class="fn">toLowerCase</span>()),
+  ),
+);</code></pre>
+  </section>
+</section>

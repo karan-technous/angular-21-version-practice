@@ -1,8 +1,21 @@
-<nav>
-  <a routerLink="/">Home</a>
-  <a routerLink="/aria">Aria</a>
-  <a routerLink="/reactive-forms">Reactive Forms</a>
-  <a routerLink="/signal-forms">Signal Forms</a>
-</nav>
-<br>
-<router-outlet></router-outlet>
+<div class="app-shell">
+  <header class="top-nav">
+    <a class="brand" routerLink="/">
+      <span class="brand__dot"></span>
+      {{ title() }}
+    </a>
+    <nav class="top-nav__links">
+      <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="is-active">
+        Home
+      </a>
+      <!-- <a routerLink="/aria" routerLinkActive="is-active">Angular Aria</a>
+      <a routerLink="/reactive-forms" routerLinkActive="is-active">Reactive Forms</a>
+      <a routerLink="/signal-forms" routerLinkActive="is-active">Signal Forms</a> -->
+      <a routerLink="/explore-all" routerLinkActive="is-active">Explore All</a>
+    </nav>
+  </header>
+
+  <main class="route-stage">
+    <router-outlet></router-outlet>
+  </main>
+</div>

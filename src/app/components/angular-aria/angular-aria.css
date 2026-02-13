@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined');
+
+.aria-shell {
+  display: grid;
+  gap: 16px;
+  --panel-tint: rgba(14, 165, 233, 0.12);
+}
+
+.aria-shell--violet {
+  --panel-tint: rgba(168, 85, 247, 0.14);
+}
+
+.aria-head {
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.eyebrow {
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  margin-bottom: 8px;
+}
+
+.tone-toggle {
+  border: 1px solid var(--border-2);
+  border-radius: 12px;
+  background: var(--surface-1);
+  color: var(--text-1);
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: all 240ms ease;
+}
+
+.tone-toggle:hover {
+  border-color: #6a66f5;
+  transform: translateY(-2px);
+}
+
+.aria-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.panel {
+  padding: 16px;
+  border-color: color-mix(in srgb, var(--border) 75%, var(--panel-tint));
+}
+
+.panel h2 {
+  margin-bottom: 12px;
+}
+
+[ngAccordionGroup] {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+h3 {
+  margin: 0;
+}
+
+[ngAccordionTrigger] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+  padding: 12px;
+  background: var(--surface-1);
+  border-bottom: 1px solid var(--border);
+  transition: background 220ms ease;
+}
+
+[ngAccordionTrigger]:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[ngAccordionTrigger][aria-expanded='true'] {
+  background:
+    linear-gradient(var(--surface-1), var(--surface-1)) padding-box,
+    var(--accent-gradient) border-box;
+  border: 1px solid transparent;
+}
+
+.expand-icon {
+  width: 1rem;
+  height: 1rem;
+  position: relative;
+  color: var(--text-3);
+}
+
+.expand-icon::before,
+.expand-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transition: all 220ms ease;
+}
+
+.expand-icon::after {
+  transform: rotate(90deg);
+}
+
+.expand-icon__expanded::before {
+  opacity: 0;
+}
+
+.expand-icon__expanded::after {
+  transform: rotate(0);
+}
+
+p {
+  margin: 0;
+  padding: 10px 12px;
+}
+
+.autocomplete {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: var(--text-3);
+}
+
+[ngComboboxInput] {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-1);
+  color: var(--text-1);
+  padding: 10px 10px 10px 36px;
+}
+
+[ngComboboxInput]:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.16);
+}
+
+[ngCombobox]:has([aria-expanded='false']) .popup {
+  display: none;
+}
+
+.popup {
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 6px;
+  background: #121217;
+  max-height: 220px;
+  overflow: auto;
+}
+
+[ngListbox] {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+[ngOption] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+[ngOption]:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+[ngOption][aria-selected='true'] {
+  background: color-mix(in srgb, #0ea5e9 14%, transparent);
+}
+
+[ngOption]:not([aria-selected='true']) .check-icon {
+  display: none;
+}
+
+.live-feedback {
+  margin-top: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--panel-tint) 56%, transparent);
+}
+
+.live-feedback p {
+  padding: 8px 10px;
+}
+
+.code-panel {
+  padding: 16px;
+}
+
+pre {
+  margin-top: 10px;
+  border: 1px solid #232334;
+  border-radius: 12px;
+  padding: 12px;
+  overflow: auto;
+  background: #0d0d12;
+}
+
+.kw {
+  color: #c084fc;
+}
+
+.fn {
+  color: #38bdf8;
+}
+
+@media (max-width: 920px) {
+  .aria-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aria-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

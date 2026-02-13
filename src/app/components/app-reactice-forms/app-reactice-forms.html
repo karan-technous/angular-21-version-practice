@@ -1,0 +1,62 @@
+<section class="forms-shell">
+  <header class="forms-head glass-card">
+    <div>
+      <p class="eyebrow">Reactive Forms</p>
+      <h1>Real-time Form Builder</h1>
+      <p>Animated validation and reactive state preview in one layout.</p>
+    </div>
+    <div class="metric">{{ completion() }}%</div>
+  </header>
+
+  <section class="forms-grid">
+    <form class="form-pane glass-card" [formGroup]="userForm" novalidate (ngSubmit)="submit()">
+      <div class="input-wrap" [class.input-wrap--filled]="userForm.controls.name.value">
+        <input id="name" type="text" placeholder=" " formControlName="name" />
+        <label for="name">Name</label>
+        @if (userForm.controls.name.touched && userForm.controls.name.hasError('required')) {
+          <small>Name is required.</small>
+        }
+        @if (userForm.controls.name.touched && userForm.controls.name.hasError('minlength')) {
+          <small>Use at least 2 characters.</small>
+        }
+      </div>
+
+      <div class="input-wrap input-wrap--filled">
+        <input id="age" type="range" min="1" max="100" formControlName="age" />
+        <label for="age">Age</label>
+        <small>Selected age: {{ userForm.controls.age.value }}</small>
+      </div>
+
+      <div class="input-wrap" [class.input-wrap--filled]="userForm.controls.email.value">
+        <input id="email" type="email" placeholder=" " formControlName="email" />
+        <label for="email">Email</label>
+        @if (userForm.controls.email.touched && userForm.controls.email.hasError('required')) {
+          <small>Email is required.</small>
+        }
+        @if (userForm.controls.email.touched && userForm.controls.email.hasError('email')) {
+          <small>Use valid email format.</small>
+        }
+      </div>
+
+      <div class="form-actions">
+        <button type="button" (click)="fillPreset('dev')">Preset Dev</button>
+        <button type="button" (click)="fillPreset('design')">Preset Design</button>
+        <button type="button" class="ghost" (click)="resetForm()">Reset</button>
+        <button type="submit" class="primary">Validate</button>
+      </div>
+
+      @if (submitted()) {
+        <p class="state">{{ userForm.valid ? 'Form is ready.' : 'Please fix highlighted fields.' }}</p>
+      }
+    </form>
+
+    <aside class="preview-pane glass-card">
+      <h2>Form Preview</h2>
+      <pre>{{ userForm.getRawValue() | json }}</pre>
+      <div class="progress">
+        <span>Validation progress</span>
+        <progress [value]="completion()" max="100"></progress>
+      </div>
+    </aside>
+  </section>
+</section>

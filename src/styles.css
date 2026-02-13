@@ -1,20 +1,102 @@
-/* Global design tokens (CSS variables) - define at :root so they're available app-wide */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
 :root {
-  --bg: #f6f8fb;
-  --card: #ffffff;
-  --accent: #4f46e5;
-  --muted: #6b7280;
-  --border: #e6e9ef;
-  --success: #10b981;
+  --bg: #09090b;
+  --bg-soft: #0d0d11;
+  --surface-1: #1a1a1a;
+  --surface-2: #27272a;
+  --glass: rgba(255, 255, 255, 0.04);
+  --text-1: #fafafa;
+  --text-2: #f4f4f5;
+  --text-3: #a1a1aa;
+  --border: #27272a;
+  --border-2: #3f3f46;
+  --accent-gradient: linear-gradient(125deg, #0ea5e9, #6366f1 45%, #a855f7);
+  --success: #22c55e;
+  --danger: #fb7185;
 }
 
-/* You can add global styles to this file, and also import other style files */
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+html,
 body {
-  background-color: black;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: white;
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  color: var(--text-1);
+  font-family: Inter, 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(circle at 10% -10%, rgba(14, 165, 233, 0.25), transparent 25%),
+    radial-gradient(circle at 80% -20%, rgba(168, 85, 247, 0.2), transparent 24%),
+    var(--bg);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0;
+  color: var(--text-2);
+}
+
+code,
+pre {
+  font-family: 'JetBrains Mono', Consolas, monospace;
+}
+
+.glass-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111114;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #2f2f35;
 }

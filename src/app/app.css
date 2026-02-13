@@ -1,13 +1,107 @@
-nav {
-  background-color: grey;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 10px;
+.app-shell {
+  min-height: 100vh;
 }
 
-nav a {
-  color: white;
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  border-bottom: 1px solid var(--border-2);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: var(--text-1);
   text-decoration: none;
+}
+
+.brand__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--accent-gradient);
+  box-shadow: 0 0 16px rgba(14, 165, 233, 0.9);
+}
+
+.top-nav__links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.top-nav__links a {
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text-3);
+  border: 1px solid transparent;
+  transition: all 260ms ease;
+}
+
+.top-nav__links a:hover {
+  color: var(--text-1);
+  border-color: var(--border-2);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.top-nav__links a.is-active {
+  color: var(--text-1);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--surface-1), var(--surface-1)) padding-box,
+    var(--accent-gradient) border-box;
+  box-shadow: 0 0 18px rgba(98, 102, 241, 0.35);
+}
+
+.badge {
+  color: var(--text-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.route-loader {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 24px 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-2);
+  animation: fade-in 250ms ease;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #0ea5e9;
+  animation: spin 900ms linear infinite;
+}
+
+@media (max-width: 900px) {
+  .top-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 14px;
+  }
+
+  .badge {
+    display: none;
+  }
 }

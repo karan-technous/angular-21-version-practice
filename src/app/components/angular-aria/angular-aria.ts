@@ -41,9 +41,11 @@ export class AngularAriaComponent {
   options = viewChildren<Option<string>>(Option);
   combobox = viewChild<Combobox<string>>(Combobox);
   query = signal('');
+  darkTone = signal<'midnight' | 'violet'>('midnight');
   countries = computed(() =>
     ALL_COUNTRIES.filter((country) => country.toLowerCase().startsWith(this.query().toLowerCase())),
   );
+  topSuggestion = computed(() => this.countries()[0] ?? 'No matching country');
   constructor() {
     afterRenderEffect(() => {
       const option = this.options().find((opt) => opt.active());
@@ -54,6 +56,10 @@ export class AngularAriaComponent {
         setTimeout(() => this.listbox()?.element.scrollTo(0, 0), 150);
       }
     });
+  }
+
+  toggleTone(): void {
+    this.darkTone.update((value) => (value === 'midnight' ? 'violet' : 'midnight'));
   }
 }
 

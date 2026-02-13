@@ -1,23 +1,47 @@
 import { Routes } from '@angular/router';
-import { Home } from './home/home';
+import { Home } from './pages/home/home';
+import { MainLayout } from './layouts/main-layout/main-layout';
+import { DashboardLayout } from './layouts/dashboard-layout/dashboard-layout';
+import { ExploreAll } from './pages/explore-all/explore-all';
 
 export const routes: Routes = [
   {
     path: '',
-    component: Home,
+    component: MainLayout,
+    children: [
+      { path: '', component: Home },
+      { path: 'about', component: Home },
+    ],
   },
   {
-    path: 'aria',
-    loadComponent: () => import('./angular-aria/angular-aria').then((m) => m.AngularAriaComponent),
-  },
-  {
-    path: 'reactive-forms',
-    loadComponent: () =>
-      import('./app-reactice-forms/app-reactice-forms').then((m) => m.AppReacticeForms),
-  },
-  {
-    path: 'signal-forms',
-    loadComponent: () =>
-      import('./app-signal-forms/app-signal-forms').then((m) => m.AppSignalForms),
+    path: '',
+    component: DashboardLayout,
+    children: [
+      {
+        path: 'explore-all',
+        component: ExploreAll,
+        children: [
+          {
+            path: 'dropdown',
+            loadComponent: () =>
+              import('./components/angular-aria/angular-aria').then((m) => m.AngularAriaComponent),
+          },
+          {
+            path: 'signal-forms',
+            loadComponent: () =>
+              import('./components/app-signal-forms/app-signal-forms').then(
+                (m) => m.AppSignalForms,
+              ),
+          },
+          {
+            path: 'reactive-forms',
+            loadComponent: () =>
+              import('./components/app-reactice-forms/app-reactice-forms').then(
+                (m) => m.AppReacticeForms,
+              ),
+          },
+        ],
+      },
+    ],
   },
 ];

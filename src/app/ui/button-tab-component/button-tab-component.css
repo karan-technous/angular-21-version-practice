@@ -1,0 +1,32 @@
+.button-component {
+  padding: 5px;
+}
+
+.button-component .flexbox-button {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 7px;
+  text-decoration: none;
+  transition: all ease 500ms;
+}
+
+.button-component .flexbox-button span {
+  color: white;
+}
+
+.active {
+  background-color: black;
+  border: 1px solid rgba(255, 255, 255, 0.258);
+  border-radius: 5px;
+}
+
+.button-component .flexbox-button button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-size: large;
+}

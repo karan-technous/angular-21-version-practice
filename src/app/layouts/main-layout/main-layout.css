@@ -1,0 +1,5 @@
+.route-stage {
+  width: min(1120px, 94vw);
+  margin: 24px auto;
+  animation: slide-up 360ms ease;
+}

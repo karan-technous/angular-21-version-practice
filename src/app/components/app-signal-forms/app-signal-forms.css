@@ -1,0 +1,172 @@
+.signal-shell {
+  display: grid;
+  gap: 16px;
+}
+
+.signal-head {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.eyebrow {
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  margin-bottom: 8px;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(110px, 1fr));
+  gap: 8px;
+}
+
+.metrics div {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 10px;
+}
+
+.metrics span {
+  color: var(--text-3);
+  font-size: 0.78rem;
+}
+
+.metrics strong {
+  display: block;
+  margin-top: 4px;
+}
+
+.signal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-pane {
+  padding: 16px;
+}
+
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  color: var(--text-2);
+  margin-bottom: 6px;
+}
+
+.field input {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0f1014;
+  color: var(--text-1);
+  padding: 11px 12px;
+  transition: all 220ms ease;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #6876ff;
+  box-shadow: 0 0 0 4px rgba(104, 118, 255, 0.15);
+}
+
+.field input[type='range'] {
+  accent-color: #5b8cff;
+  padding: 0;
+}
+
+.field small {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--danger);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  background: var(--surface-1);
+  color: var(--text-1);
+  padding: 9px 12px;
+  cursor: pointer;
+  transition: all 220ms ease;
+}
+
+.actions button:hover {
+  border-color: #6366f1;
+  transform: translateY(-2px);
+}
+
+.actions .ghost {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.visuals {
+  display: grid;
+  gap: 14px;
+}
+
+.signal-flow,
+.json-pane {
+  padding: 14px;
+}
+
+.nodes {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+.nodes span {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: linear-gradient(90deg, rgba(14, 165, 233, 0.12), rgba(168, 85, 247, 0.12));
+  position: relative;
+}
+
+.nodes span::after {
+  content: '->';
+  position: absolute;
+  right: 10px;
+  color: var(--text-3);
+}
+
+.nodes span:last-child::after {
+  content: '';
+}
+
+pre {
+  margin: 10px 0 0;
+  border: 1px solid #232334;
+  border-radius: 12px;
+  background: #0d0d12;
+  color: #93c5fd;
+  padding: 12px;
+  overflow: auto;
+}
+
+@media (max-width: 920px) {
+  .signal-head {
+    flex-direction: column;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .signal-grid {
+    grid-template-columns: 1fr;
+  }
+}

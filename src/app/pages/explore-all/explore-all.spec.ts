@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AngularAria } from './angular-aria';
+import { ExploreAll } from './explore-all';
 
-describe('AngularAria', () => {
-  let component: AngularAria;
-  let fixture: ComponentFixture<AngularAria>;
+describe('ExploreAll', () => {
+  let component: ExploreAll;
+  let fixture: ComponentFixture<ExploreAll>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AngularAria]
+      imports: [ExploreAll]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AngularAria);
+    fixture = TestBed.createComponent(ExploreAll);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

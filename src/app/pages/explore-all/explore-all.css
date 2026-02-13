@@ -1,0 +1,58 @@
+.explore-container {
+  display: flex;
+  width: 100%;
+}
+
+.left-side {
+  width: 25%;
+  padding: 20px 20px;
+  height: calc(100vh - 67px);
+  background: radial-gradient(circle, rgb(93 132 255 / 16%), #1a1a1a8c 64%);
+  min-width: 350px;
+}
+
+.left-side .welcome {
+  padding: 20px;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.215);
+}
+
+.left-side .welcome::after {
+  content: '';
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  position: absolute;
+  top: -54px;
+  right: -36px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgb(0 61 255 / 54%), #2a39c800 64%);
+}
+
+.left-side .welcome .name-plate {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.05em;
+}
+
+.left-side .welcome .span-last-login {
+  font-size: small;
+  color: grey;
+  display: block;
+  padding-top: 10px !important;
+}
+
+.dashboard-overview {
+  font-size: small;
+  color: grey;
+  display: block;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.right-side {
+  width: 75%;
+  padding: 20px;
+}

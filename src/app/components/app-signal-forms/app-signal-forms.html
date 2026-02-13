@@ -1,0 +1,66 @@
+<section class="signal-shell">
+  <header class="signal-head glass-card">
+    <div>
+      <p class="eyebrow">Signal Forms</p>
+      <h1>Fine-grained Signal Updates</h1>
+      <p>Watch values, metrics, and computed outputs react in real time.</p>
+    </div>
+    <div class="metrics">
+      <div><span>Updates</span><strong>{{ updates() }}</strong></div>
+      <div><span>Delta</span><strong>{{ lastDeltaMs() }}ms</strong></div>
+      <div><span>Completion</span><strong>{{ completion() }}%</strong></div>
+    </div>
+  </header>
+
+  <section class="signal-grid">
+    <form class="form-pane glass-card" [formGroup]="userForm" novalidate>
+      <div class="field">
+        <label for="name-s">Name</label>
+        <input id="name-s" type="text" formControlName="name" />
+        @if (userForm.controls.name.touched && userForm.controls.name.hasError('required')) {
+          <small>Name is required.</small>
+        }
+      </div>
+
+      <div class="field">
+        <label for="age-s">Age</label>
+        <input id="age-s" type="range" min="1" max="100" formControlName="age" />
+        <small>Age band: {{ ageBand() }}</small>
+      </div>
+
+      <div class="field">
+        <label for="email-s">Email</label>
+        <input id="email-s" type="email" formControlName="email" />
+        @if (userForm.controls.email.touched && userForm.controls.email.hasError('required')) {
+          <small>Email is required.</small>
+        }
+        @if (userForm.controls.email.touched && userForm.controls.email.hasError('email')) {
+          <small>Invalid email format.</small>
+        }
+      </div>
+
+      <div class="actions">
+        <button type="button" (click)="fillPreset()">Fill Preset</button>
+        <button type="button" class="ghost" (click)="resetForm()">Reset</button>
+      </div>
+    </form>
+
+    <aside class="visuals">
+      <article class="signal-flow glass-card">
+        <h2>Signal Flow</h2>
+        <div class="nodes">
+          <span>Form Inputs</span>
+          <span>valueChanges</span>
+          <span>formValue()</span>
+          <span>computed metrics</span>
+          <span>UI Render</span>
+        </div>
+      </article>
+
+      <article class="json-pane glass-card">
+        <h2>Live Signal State</h2>
+        <pre>{{ formValue() | json }}</pre>
+      </article>
+    </aside>
+  </section>
+</section>

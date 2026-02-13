@@ -1,0 +1,36 @@
+<section class="home-shell">
+  <header class="hero glass-card">
+    <p class="eyebrow">Design Playground</p>
+    <h1>Crafting <span class="gradient-text">interactive dark experiences</span> in Angular.</h1>
+    <p>
+      Explore a modern UI system inspired by Vercel: glass surfaces, gradient accents, responsive
+      layouts, and polished motion.
+    </p>
+    <div class="hero-actions">
+      <!-- <a class="cta" routerLink="/reactive-forms">Build Forms</a> -->
+      <a class="ghost" routerLink="/explore-all">Explore Now</a>
+    </div>
+  </header>
+
+  <h2>Recently Added</h2>
+  <section class="cards">
+    @for (item of features; track item.title) {
+      <article class="feature glass-card">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+        <a [routerLink]="item.route">Open demo</a>
+      </article>
+    }
+  </section>
+
+  <section class="testimonial glass-card">
+    <div class="testimonial__head">
+      <h2>Testimonials</h2>
+      <div class="actions">
+        <button type="button" (click)="prev()">></button>
+        <button type="button" (click)="next()"><</button>
+      </div>
+    </div>
+    <p class="quote">"{{ activeTestimonial() }}"</p>
+  </section>
+</section>

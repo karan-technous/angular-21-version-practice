@@ -1,15 +1,27 @@
-import { Component, signal } from '@angular/core';
-import { AppSignalForms } from './app-signal-forms/app-signal-forms';
-import { AppReacticeForms } from './app-reactice-forms/app-reactice-forms';
-import { AngularAriaComponent } from './angular-aria/angular-aria';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
+import {
+  NavigationCancel,
+  NavigationEnd,
+  NavigationError,
+  NavigationStart,
+  Router,
+  RouterLink,
+  RouterLinkActive,
+  RouterOutlet,
+} from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports:[AppSignalForms,AppReacticeForms, AngularAriaComponent, RouterOutlet, RouterLink]
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
 })
 export class App {
-  protected readonly title = signal('my-angular-21-app');
+  private readonly router = inject(Router);
+  private readonly destroyRef = inject(DestroyRef);
+
+  protected readonly title = signal('Angular UI Lab');
+
+  constructor() {}
 }
