@@ -50,6 +50,13 @@ export const routes: Routes = [
                 (m) => m.AppReacticeForms,
               ),
           },
+          {
+            path: 'grid',
+            loadComponent: () =>
+              import('./components/grid/grid').then(
+                (m) => m.GridComponent,
+              ),
+          },
         ],
       },
     ],
