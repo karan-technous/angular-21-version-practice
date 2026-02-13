@@ -22,6 +22,13 @@ export const routes: Routes = [
         component: ExploreAll,
         children: [
           {
+            path: '',
+            loadComponent: () =>
+              import('./components/default-explore-layout/default-explore-layout').then(
+                (m) => m.DefaultExploreLayout,
+              ),
+          },
+          {
             path: 'dropdown',
             loadComponent: () =>
               import('./components/angular-aria/angular-aria').then((m) => m.AngularAriaComponent),
